@@ -42,16 +42,16 @@ The CNN model for time series anomaly detection consists of:
 - MaxPooling layers to downsample the data
 - Flatten and Dense layers for final predictions
 
-  ```python
-  model = Sequential()
-  model.add(Conv1D(filters=32, kernel_size=3, activation='relu', input_shape=(look_back, 1)))
-  model.add(MaxPooling1D(pool_size=2))
-  model.add(Conv1D(filters=64, kernel_size=3, activation='relu'))
-  model.add(MaxPooling1D(pool_size=2))
-  model.add(Flatten())
-  model.add(Dense(50, activation='relu'))
-  model.add(Dense(1))
-  ```
+```python
+model = Sequential()
+model.add(Conv1D(filters=32, kernel_size=3, activation='relu', input_shape=(look_back, 1)))
+model.add(MaxPooling1D(pool_size=2))
+model.add(Conv1D(filters=64, kernel_size=3, activation='relu'))
+model.add(MaxPooling1D(pool_size=2))
+model.add(Flatten())
+model.add(Dense(50, activation='relu'))
+model.add(Dense(1))
+```
 
 ## Training
   The model is trained on the time series data using Mean Absolute Error (MAE) as the loss function and Adam optimizer:
